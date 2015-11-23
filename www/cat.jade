@@ -1,0 +1,38 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="categorias")
+		.page-content
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="cat.php").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+
+			
+			#novCat
+			script(type="text/template7")#tplCat
+				.row
+					{{#each li}}
+					{{#if img}}
+					.col-50.tablet-33
+						.card
+							a(href="list.php?{{category_id}}").card-header.color-white.no-border.itemcat(style="background:url(../media/cat/{{img}}) no-repeat center center").h150 
+							.card-content
+								.card-content-inner {{nombre}}
+					{{/if}}
+					{{/each}}
+
+
+			//- script(type="text/template7")#tplLi
+				.popup
+					.content-block
+						.row
+							{{#each items}}
+							.col-50.tablet-33
+								.card
+									a(href="#").card-header.color-white.no-border(style="background:url({{thumb}}) no-repeat center center").h150 
+									.card-content
+										.card-content-inner {{item_name}}
+							{{/each}}

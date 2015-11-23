@@ -1,0 +1,73 @@
+.page-content.login-screen-content
+			.login-screen-title Registro
+			form(action="../auth/register/1",method="post",enctype="multipart/form-data").ajax-submit#aut-reg
+				.list-block
+					ul
+						li.item-content
+							.item-inner
+								.item-title.label Nombre *	
+								.item-input
+									input(type="text",name="name")
+						li.item-content
+							.item-inner
+								.item-title.label Apellido	
+								.item-input
+									input(type="text",name="last")
+						li.item-content
+							.item-inner
+								.item-title.label Teléfono	
+								.item-input
+									input(type="text",name="tel")
+						li.item-content
+							.item-inner
+								.item-title.label Dirección *	
+								.item-input
+									input(type="text",name="dir")
+						li.item-content
+							.item-inner
+								.item-title.label Colonia/Delegación	
+								.item-input
+									input(type="text",name="col")
+						li.item-content
+							.item-inner
+								.item-title.label Ciudad *	
+								.item-input
+									input(type="text",name="cd")
+						li.item-content
+							.item-inner
+								.item-title.label Codigo Postal	
+								.item-input
+									input(type="text",name="cp")
+						li.item-content
+							.item-inner
+								.item-title.label Estado *	
+								.item-input
+									- var edo= ['Selecciona el Estado','Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'Chiapas', 'Chihuahua', 'Coahuila de Zaragoza', 'Colima', 'Distrito Federal', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo', 'Jalisco', 'Mexico', 'Michoacan de Ocampo', 'Morelos', 'Nayarit', 'Nuevo Leon', 'Oaxaca', 'Puebla', 'Queretaro de Arteaga', 'Quintana Roo', 'San Luis Potosi', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala', 'Veracruz-Llave', 'Yucatan', 'Zacatecas']
+									select(name="edo")
+										- for x,i in edo
+											option(value="#{i}") #{x}
+						li.item-content
+							.item-inner
+								.item-title.label Email *	
+								.item-input
+									input(type="email",name="email")
+						li.item-content
+							.item-inner
+								.item-title.label Contraseña *	
+								.item-input
+									input(type="password",name="password")
+						li.item-content
+							.item-inner
+								.item-title.label Confirmar contraseña *
+								.item-input
+									input(type="password",name="confirm_password")
+
+				.content-block
+					.list-block
+						ul
+							li
+								input(type="submit",value="Registrar").button 
+						.list-block-label
+							p Completa correctamente los siguientes campos.
+							p
+								a(href="#").close-popup Cerrar

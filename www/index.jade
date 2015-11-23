@@ -1,0 +1,222 @@
+doctype html
+html(class="no-js",lang="es")
+	head
+		title Recuadros
+		//	
+			| Este sitio ha sido desarrollado por Grupo Quimaira.
+			| Tel. +52 477 716 5086 
+			| E-mail: ideas@quimaira.com
+			| www.quimaira.com
+			| León, Guanajuato
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+		meta(name="HandheldFriendly",content="True")
+		meta(name="apple-mobile-web-app-capable",content="yes")
+		meta(name="apple-mobile-web-app-status-bar-style",content="black")
+		meta(name="format-detection",content="telephone=no")
+		meta(http-equiv="cleartype",content="on")
+
+		link(href="../media/app/startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image")
+		link(href="../media/app/startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image")
+		link(href="../media/app/startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image")
+		link(href="../media/app/startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image")
+		link(href="../media/app/startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image")
+		link(href="../media/app/startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image")
+
+
+		link(rel="apple-touch-icon", sizes="57x57", href="../media/app/apple-touch-icon-57x57.png")
+		link(rel="apple-touch-icon", sizes="60x60", href="../media/app/apple-touch-icon-60x60.png")
+		link(rel="icon", type="image/png", href="../media/app/favicon-32x32.png", sizes="32x32")
+		link(rel="icon", type="image/png", href="../media/app/favicon-16x16.png", sizes="16x16")
+		link(rel="manifest", href="../media/app/manifest.json")
+		meta(name="msapplication-TileColor", content="#5b5b5b")
+		meta(name="theme-color", content="#5b5b5b")
+		
+		link(rel="shortcut icon",type="image/ico",href="../favicon.ico")
+		link(rel="stylesheet",href="css/main.css",type="text/css",media="all")
+		link(rel="stylesheet",href="http://fonts.googleapis.com/css?family=Grand+Hotel",type="text/css",media="all")
+		//- script(type="text/javascript",src="http://192.168.15.22:8080/target/target-script-min.js#anonymous")
+
+	body
+		.cont.bcF
+			.statusbar-overlay
+			.panel-overlay
+			.panel.panel-left.panel-reveal
+				.content-block
+					#navHtml
+					script(type="text/template7")#navTpl
+						.list-block
+							ul
+								li
+									a(href="sube.php").item-link.close-panel
+										span.item-content
+											span.item-inner sube tu foto
+								li
+									a(href="sear.php").item-link.close-panel
+										span.item-content
+											span.item-inner buscador
+								li
+									a(href="cat.php").item-link.close-panel
+										span.item-content
+											span.item-inner categorías
+								li
+									a(href="faq.php").item-link.close-panel
+										span.item-content
+											span.item-inner faq's
+								li
+									a(href="cont.php").item-link.close-panel
+										span.item-content
+											span.item-inner contacto
+								{{#if login}}
+								li
+									a(href="#").item-link.close-panel#logout
+										span.item-content
+											span.item-inner cerrar sesión
+								{{else}}
+								li
+									a(href="#").open-login-screen.close-panel.item-link
+										span.item-content
+											span.item-inner inicias sesión
+								li
+									a(href="#",data-popup=".popup-registro").open-popup.close-panel.item-link
+										span.item-content
+											span.item-inner registrarse
+								{{/if}}
+						.card
+							.card-content
+								{{#if login}}
+								.card-header Bienvenido {{name}}
+								{{/if}}
+								.card-content-inner Tels. (449) 454 5609 ó (814) 162 3747
+			
+			.popup.popup-registro
+
+			.popup.popup-upload
+				.login-screen-content 
+					.login-screen-title IMAGEN
+					.content-block
+						.list-block-label
+							p Previsualización de la imagen cargada
+						#upload.tc
+						p
+							a(href="#").close-popup.s18.br20.bc28.cF.p5.pl20.pr20 
+								span Cerrar
+								span.fa.fa-caret-right.s20.pl10
+			
+			.views
+
+				.login-screen
+
+				.view.view-main
+					.navbar.cF
+						.navbar-inner
+							.left
+								a(href="#").open-panel.link.icon-only
+									i.fa.fa-list
+							.center.sliding
+								a(href="index.php")
+									img(src="img/logo.png", alt="").h20
+							.right
+								a(href="cart.php").dt
+									span.dtc.vm
+										img(src="img/cart.png", alt="") 
+									span.dtc.vm.p5
+										span.badge#cartItem 0
+
+					.pages.navbar-through.toolbar-through
+						.page(data-page="index")
+							.page-content
+
+								.swiper-container.swiper-1
+									.swiper-wrapper
+								script(type="text/template7")#banTpl
+											{{#each ban}}
+											.swiper-slide.r
+												.abt(style="background:url(../media/ban/{{#if img_mobil}}{{img_mobil}}{{else}}{{img}}{{/if}}) no-repeat center center").bc
+												img(src="../img/mobil.jpg", alt="").ww.db
+											{{/each}}
+
+								.content-block
+									#novHtml
+								script(type="text/template7")#novTpl
+									h1.GH.c28.s40.n Novedades
+									.swiper-container.swiper-2
+										.tr
+											a(href="#").slider-prev-button.mr10.dib
+												img(src="img/prev.png", alt="")
+											a(href="#").slider-next-button.dib
+												img(src="img/next.png", alt="")
+										.swiper-wrapper
+											{{#each nov}}
+											.swiper-slide
+												.card
+													a(href="prod.php?{{id}}")
+														.card-header.color-white.no-border(style="background:url({{thumb}}) center center no-repeat").h100
+														.card-content
+															.card-content-inner.h70.c0
+																.b {{item_name}}
+																.of $ {{precio}}
+															.card-footer Descuento {{reg}}
+											{{/each}}
+
+								.content-block
+									.card
+										img(src="img/pasos.jpg", alt="")
+									.card
+										.card-content-inner
+											table.ww
+												tr
+													td.w70
+														img(src="../img/hm_1.png", alt="")
+													td
+														.r
+															.GH.s30 De nuestra galería 
+														span Escoge imágenes de nuestros archivos. 
+														a(href="cat.php").abt
+									.card
+										.card-content-inner
+											table.ww
+												tr
+													td.w70
+														img(src="../img/hm_3.png", alt="")
+													td
+														.GH.s30 Personaliza
+														span Selecciona tamaño, materiales, acomodo...
+														a(href="sube.php").abt
+									//- .card
+										.card-content-inner
+											table.ww
+												tr
+													td.w70
+														img(src="../img/hm_4.png", alt="")
+													td
+														.GH.s30 Ordena
+														span Realiza tu compra y recibe tu pedido en tu casa.
+
+
+									
+					.toolbar
+						.toolbar-inner.icons
+							a(href="index.php")
+								i.fa.fa-home
+							a(href="tel:014494545609").external
+								i.fa.fa-phone
+							a(href="https://www.facebook.com/Recuadroscom").external
+								i.fa.fa-facebook
+							a(href="cart.php")
+								i.fa.fa-shopping-cart
+							a(href="cont.php")
+								i.fa.fa-envelope-o
+
+
+		script(type="text/javascript",src="js/addtohomescreen/addtohomescreen.min.js")
+		link(rel="stylesheet",href="js/addtohomescreen/addtohomescreen.css",type="text/css",media="all")
+		script(type="text/javascript",src="framework7/framework7.min.js")
+		script(type="text/javascript",src="js/help.js")
+		script(type="text/javascript",src="js/main.js")
+
+		script(type="text/javascript",src="cordova.js")
+		script(type="text/javascript",src="old/js/index.js")
+		script(type="text/javascript").
+			app.initialize();

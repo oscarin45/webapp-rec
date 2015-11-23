@@ -1,0 +1,26 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="prod3")
+		.page-content
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="#").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+			.content-block-title
+				h1.GH.c28.s40.n.tc Tu selección
+
+			form(action="../home/add_cart/1",method="post",enctype="multipart/form-data").list-block.ajax-submit#form
+			script(type="text/template7")#tplFrm
+				input(type="hidden",name="prec_publi",value="{{prec_publi}}")
+				input(type="hidden",name="name",value="{{item_name}}")
+				input(type="hidden",name="img",value="{{lowres}}")
+				input(type="hidden",name="id",value="{{id}}")
+				input(type="hidden",name="publisher",value="{{publisher}}")
+				input(type="hidden",name="publisher_name",value="{{publisher_name}}")
+
+				.card
+					.card-content
+						.card-content-inner#total

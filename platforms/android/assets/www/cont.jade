@@ -1,0 +1,67 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="contacto")
+		.page-content
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="#").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+			.content-block-title
+				h1.GH.c28.s40.n.tc Contacto
+			form(action="../post/contacto/1",method="post",enctype="multipart/form-data").list-block.ajax-submit
+				input(type="hidden",name="string_cap",value="prueba")#captcha
+				ul
+					li
+						.item-content
+							.item-inner
+								.item-media
+									i.fa.fa-user
+								.item-input
+									input(type="text",name="nombre",placeholder="Nombre Completo")
+					li
+						.item-content
+							.item-inner
+								.item-media
+									i.fa.fa-envelope-o
+								.item-input
+									input(type="email",name="email",placeholder="Correo electrónico")
+					li
+						.item-content
+							.item-inner
+								.item-media
+									i.fa.fa-align-left
+								.item-input
+									input(type="text",name="ciudad",placeholder="Ciudad y estado")
+					li
+						.item-content
+							.item-inner
+								.item-media
+									i.fa.fa-phone
+								.item-input
+									input(type="text",name="telefono",placeholder="Teléfono LADA")
+					li
+						.item-content
+							.item-inner
+								.item-media
+									i.fa.fa-comment
+								.item-input
+									textarea(name="mensaje",placeholder="Mensaje")
+			
+				.content-block
+					input(type="submit",value="ENVIAR").button
+				.content-block
+					.card
+						.card-content
+							.card-content-inner Puedes contactarnos a través de nuestro mail: 
+								br
+								a(href="mailto:info@recuadros.com").external info@recuadros.com 
+								span O llamarnos al:
+								br
+								span (449) 454 5609 ó (814) 162 3747
+								br
+								span Para solucionar cualquier duda también puedes leer nuestras 
+								br
+								a(href="faq.php") preguntas frecuentes.

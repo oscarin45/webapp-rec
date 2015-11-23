@@ -1,0 +1,32 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="lista")
+		.page-content.infinite-scroll(data-distance="100")
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="cat.php").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+			.content-block#list
+
+			script(type="text/template7")#tplHead
+				{{#if title}}
+				.content-block-title
+					h1.GH.c28.s40.n.tc {{title}}
+				{{/if}}
+				.row
+
+			script(type="text/template7")#tplLi
+				{{#each items}}
+				.col-50.tablet-33
+					.card
+						a(href="prod.php?{{id}}")
+							.card-header.color-white.no-border(style="background:url({{thumb}}) no-repeat center center").h150 
+							.card-content
+								.card-content-inner.h40.c0
+									.b {{item_name}}
+									.of $ {{precio}}
+								.card-footer Descuento {{reg}}
+				{{/each}}

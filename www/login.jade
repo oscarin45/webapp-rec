@@ -1,0 +1,28 @@
+.view
+	.page
+		.page-content.login-screen-content
+			.login-screen-title Inicia Sesión
+			form(action="../auth/login/1",method="post",enctype="multipart/form-data").ajax-submit#aut-log
+				.list-block
+					ul
+						li.item-content
+							.item-inner
+								.item-title.label Email
+								.item-input
+									input(type="email",name="login")
+						li.item-content
+							.item-inner
+								.item-title.label Contraseña
+								.item-input
+									input(type="password",name="password")
+				.content-block
+					.list-block
+						ul
+							li
+								input(type="submit",value="Entrar").button 
+						.list-block-label
+							p Adquiere tu cuenta en recuadros y goza de todos los beneficios. 
+								br
+								span Es muy sencillo.
+							p
+								a(href="#").close-login-screen Cerrar

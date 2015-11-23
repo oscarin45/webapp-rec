@@ -1,0 +1,84 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="cart")
+		.page-content
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="#").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+								
+			form(action="../home/update_cart/1",method="post",enctype="multipart/form-data").list-block.ajax-submit#cart
+			script(type="text/template7")#tplCr
+				input(type="hidden",name="redirect",value="")#redirect_path
+				.row
+					.tablet-50.col-100
+						.content-block
+							{{#if login}}
+							{{#if items}}
+							.content-block-title Selecciona forma de pago:
+							#pay
+								label
+									img(src="../media/pay/deposito-bancario.png", alt="")
+									input(type="radio",name="pago",value="deposito",checked)
+								label
+									img(src="../media/pay/paypal_cd.png", alt="")
+									input(type="radio",name="pago",value="paypal")
+							{{/if}}
+							{{else}}
+							a(href="#").button.open-login-screen Login
+							br
+							a(href="#",data-popup=".popup-registro").button.open-popup Registrarse
+							{{/if}}
+					.tablet-50.col-100
+						.card
+							.card-header TOTAL
+							.card-content
+								.card-content-inner
+									span {{items}} Cuadros
+									br
+									span {{envio}}
+							.card-footer $ {{total}}
+				.list-block.media-list
+					ul
+						{{#if items}}
+						{{#each cart}}
+						//- {{#each @root.cart}}
+						li.swipeout
+							.swipeout-content.item-content
+								.item-media
+									img(src="{{options.img}}", alt="").h80.lazy
+								.item-inner
+									.item-title-row 
+										.item-title {{name}}
+										.item-after 
+											.ww ${{price}}
+									.item-subtitle {{qty}} cuadros
+									.item-text
+										{{#each options.opt}}
+										b {{@key}}:
+										span {{this}}
+										br
+										{{/each}}
+									input(type="number",min="1",value="{{qty}}",name="cart[{{@key}}]").w80.br
+							.swipeout-actions-right
+								a(href="#",data-id="{{@key}}",data-confirm-title="Eliminar?",data-confirm="Desea eleiminar el producto?").swipeout-delete Eliminar
+						//- {{/each}}
+						{{/each}}
+						{{else}}
+						li.p10.tc No hay productos
+						{{/if}}
+				.content-block
+					.row
+						{{#if items}}
+						.col-50
+							a(href="#").button#actualizar Actualizar pedido
+						{{/if}}
+						{{#if login}}
+						{{#if items}}
+						.col-50
+							a(href="#").button#enviar Enviar
+						{{/if}}
+						{{/if}}

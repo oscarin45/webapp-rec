@@ -1,0 +1,98 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="sube2")
+		.page-content
+			#novCd
+			script(type="text/template7")#tplCd
+				input(type="hidden",name="estilo",value="{{id}}")
+				.list-block(style="margin:0")
+					ul
+						li
+							a(href="cat.php").back.link
+								.item-content
+									.item-media
+										i.icon.icon-back
+									.item-inner 
+										.item-title Regresar
+										.item-after.b {{name}}
+
+				.content-block-title Medidas
+				{{#if collage}}
+				.list-block.media-list
+					ul
+						{{#each collage}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="medida[{{tipo}}]",value="{{id}}")
+								{{#if imagen}}
+								span.item-media.w120
+									img(src="{{imagen}}", alt="").h80
+								{{/if}}
+								span.item-inner
+									span.item-title-row 
+										span.item-title {{nombre}}
+									span.item-text.of $ {{precio}}
+
+
+
+
+
+
+								//- input(type="radio",name="medida[{{tipo}}]",value="{{id}}")
+								//- a(href="list.php?{{category_id}}").card-header.color-white.no-border.itemcat(style="background:url(../media/estilo/thumb/{{img}}) no-repeat center center").h150 
+								//- .card-content
+								//- 	.card-content-inner {{nombre}}
+						{{/each}}
+				{{/if}}
+
+
+				{{#if medidas}}
+				.list-block.media-list
+					ul
+						{{#each medidas}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="medida[{{tipo}}]",value="{{id}}")
+								{{#if img}}
+								span.item-media
+									img(src="{{img}}", alt="")
+								{{/if}}
+								span.item-inner
+									span.item-title-row 
+										span.item-title Total: {{datos}}
+										span.item-after $ {{reg}}
+									span.s11.medidas(data-id="{{id}}")
+										{{#if medida}}
+										{{#each medida}}
+										span.br.p5.mr10.mb10.dib(data-w="{{width}}",data-h="{{height}}") {{val}}
+										{{/each}}
+										{{/if}}
+									span.item-text.of $ {{precio}}
+						{{/each}}
+
+
+				{{/if}}
+
+				//-ACABADOS LISTADO
+				{{#each acabado}}
+				.content-block-title {{@key}}
+				.list-block.media-list
+					ul
+						{{#each @root.acabado.@key}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="acabado[{{tipo}}]",value="{{id}}")
+								{{#if imagen}}
+								span.item-media
+									img(src="../media/acabado/{{imagen}}", alt="")
+								{{/if}}
+								span.item-inner
+									span.item-title-row {{nombre}}
+						{{/each}}
+				{{/each}}
+
+				input(type="hidden",name="base",value="{{base_url}}")
+				.tc.mb20
+					a(href="sube3.php?{{id}}").s18.br20.bc28.cF.p5.pl20.pr20 
+						span.fa.fa-shopping-cart.s20.pr10
+						span terminar selección
+						span.fa.fa-caret-right.s20.pl10

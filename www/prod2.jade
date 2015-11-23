@@ -1,0 +1,59 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="producto-detalle").forms-checkboxes
+		.page-content
+			.list-block(style="margin:0")
+				ul
+					li
+						a(href="cat.php").back.link
+							.item-content
+								.item-media
+									i.icon.icon-back
+								.item-inner Regresar
+			//- .content-block
+			#detpr
+			script(type="text/template7")#tplPr2
+				.content-block-title Medidas
+				.list-block.media-list
+					ul
+						{{#each medidas}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="medida[]",value="{{w}}_{{h}}")
+								span.item-inner
+									span.item-title-row Total: {{datos}}
+										span.item-subtitle $ {{reg}}
+									span.item-text.of $ {{precio}}
+						{{/each}}
+				{{#each acabado}}
+				.content-block-title {{@key}}
+				.list-block.media-list
+					ul
+						{{#each @root.acabado.@key}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="acabado[{{tipo}}]",value="{{id}}")
+								{{#if imagen}}
+								span.item-media
+									img(src="../media/acabado/{{imagen}}", alt="")
+								{{/if}}
+								span.item-inner
+									span.item-title-row {{nombre}}
+						{{/each}}
+				{{/each}}
+				.tc
+					a(href="prod3.php?{{id}}").s18.br20.bc28.cF.p5.pl20.pr20 
+						span.fa.fa-shopping-cart.s20.pr10
+						span terminar selección
+						span.fa.fa-caret-right.s20.pl10
+				//- .content-block-title Acabado
+				//- .list-block.media-list
+					ul
+						{{#each medidas}}
+						li
+							label.label-radio.item-content
+								input(type="radio",name="medida",value="{{w}}_{{h}}")
+								span.item-inner
+									span.item-title-row Total: {{datos}}
+										span.item-subtitle $ {{reg}}
+									span.item-text.of $ {{precio}}
+						{{/each}}

@@ -1,0 +1,154 @@
+.pages.navbar-through.toolbar-through
+	.page(data-page="buscar")
+		//- form.searchbar.searchbar-init(data-search-list=".list-block-search",data-search-in=".item-title",data-customSearch=true)
+		form.searchbar
+			.searchbar-input
+				input(type="search",placeholder="Buscar")
+				a(href="#").searchbar-clear
+			a(href="#").searchbar-cancel
+
+
+		.searchbar-overlay
+
+		.page-content
+			.content-block.searchbar-not-found 
+				.list-block.media-list
+					ul
+						li.p10.tc No se encontrarón cuadros
+
+			.list-block.list-block-search.searchbar-found
+
+			script(type="text/template7")#tplBus
+				.row
+					{{#each items}}
+					.col-50.tablet-33
+						.card
+							a(href="prod.php?{{id}}")
+								.card-header.color-white.no-border(style="background:url({{thumb}}) no-repeat center center").h150 
+								.card-content
+									.card-content-inner.h40.c0
+										.b {{item_name}}
+										.of $ {{precio}}
+									.card-footer Descuento {{reg}}
+					{{/each}}
+			//- ul
+					li.item-content
+						.item-inner
+							.item-title Acura
+					li.item-content
+						.item-inner
+							.item-title Aud
+					li.item-content
+						.item-inner
+							.item-title BM
+					li.item-content
+						.item-inner
+							.item-title Cadillac
+					li.item-content
+						.item-inner
+							.item-title Chevrolet
+					li.item-content
+						.item-inner
+							.item-title Chrysler
+					li.item-content
+						.item-inner
+							.item-title Dodge
+					li.item-content
+						.item-inner
+							.item-title Ferrari
+					li.item-content
+						.item-inner
+							.item-title Ford
+					li.item-content
+						.item-inner
+							.item-title GMC
+					li.item-content
+						.item-inner
+							.item-title Hond
+					li.item-content
+						.item-inner
+							.item-title Humme
+					li.item-content
+						.item-inner
+							.item-title Hyunda
+					li.item-content
+						.item-inner
+							.item-title Infiniti
+					li.item-content
+						.item-inner
+							.item-title Isuzu
+					li.item-content
+						.item-inner
+							.item-title Jaguar
+					li.item-content
+						.item-inner
+							.item-title Jeep
+					li.item-content
+						.item-inner
+							.item-title Ki
+					li.item-content
+						.item-inner
+							.item-title Lamborghini
+					li.item-content
+						.item-inner
+							.item-title Land Rove
+					li.item-content
+						.item-inner
+							.item-title Lexus
+					li.item-content
+						.item-inner
+							.item-title Lincoln
+					li.item-content
+						.item-inner
+							.item-title Lotus
+					li.item-content
+						.item-inner
+							.item-title Mazd
+					li.item-content
+						.item-inner
+							.item-title Mercedes-Ben
+					li.item-content
+						.item-inner
+							.item-title Mercury
+					li.item-content
+						.item-inner
+							.item-title Mitsubish
+					li.item-content
+						.item-inner
+							.item-title Nissan
+					li.item-content
+						.item-inner
+							.item-title Oldsmobile
+					li.item-content
+						.item-inner
+							.item-title Peugeot
+					li.item-content
+						.item-inner
+							.item-title Pontiac
+					li.item-content
+						.item-inner
+							.item-title Porsch
+					li.item-content
+						.item-inner
+							.item-title Rega
+					li.item-content
+						.item-inner
+							.item-title Saab
+					li.item-content
+						.item-inner
+							.item-title Saturn
+					li.item-content
+						.item-inner
+							.item-title Subaru
+					li.item-content
+						.item-inner
+							.item-title Suzuki
+					li.item-content
+						.item-inner
+							.item-title Toyot
+					li.item-content
+						.item-inner
+							.item-title Volkswage
+					li.item-content
+						.item-inner
+							.item-title Volv
