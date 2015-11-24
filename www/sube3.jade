@@ -6,7 +6,7 @@
 				.list-block(style="margin:0")
 					ul
 						li
-							a(href="cat.php").back.link
+							a(href="cat.html").back.link
 								.item-content
 									.item-media
 										i.icon.icon-back
@@ -24,14 +24,14 @@
 									.item-content
 										.item-inner 
 											.item-title-row
-												//- form(method="post", action="../test/upload",enctype="multipart/form-data")
+												//- form(method="post", action="http://recuadros.com/test/upload",enctype="multipart/form-data")
 												input(type="file",name="file",data-w="{{w}}",data-h="{{h}}")
 												input(type="hidden",name="img[]",value="")
 											.item-subtitle {{w}}px x {{h}}px
 								{{/each}}
 
 				.tc.mb20.p10
-					a(href="#",data-ur="sube4.php?{{id}}").s18.br20.bc28.cF.p5.pl20.pr20#avanzar
+					a(href="#",data-ur="sube4.html?{{id}}").s18.br20.bc28.cF.p5.pl20.pr20#avanzar
 						span.fa.fa-shopping-cart.s20.pr10
 						span Siguiente
 						span.fa.fa-caret-right.s20.pl10

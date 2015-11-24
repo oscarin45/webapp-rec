@@ -92,18 +92,18 @@ myApp.onPageInit 'contacto', (e)->
 		msg(e)
 
 
-$.get 'login.php', (e)->
+$.get 'login.html', (e)->
 	$('.login-screen').html e
 	$('form#aut-log').on 'submitted', (e)->
 		p= msg(e)
 		if p.msg
 			myApp.closeModal '.login-screen'
-			mainView.loadPage 'index.php'
+			mainView.loadPage 'index.html'
 			setTimeout ->
-				mainView.loadPage 'cart.php'
+				mainView.loadPage 'cart.html'
 			, 500
 
-$.get 'registro.php', (e)->
+$.get 'registro.html', (e)->
 	$('.popup-registro').html e
 
 	$('form#aut-reg').on 'submitted', (e)->
@@ -125,7 +125,7 @@ myApp.onPageInit 'categorias', (e)->
 			
 
 myApp.onPageInit 'lista', (e)->
-	hr=  e.url.replace 'list.php?', ''
+	hr=  e.url.replace 'list.html?', ''
 	head = Template7.compile $('#tplHead').html()
 	lic = Template7.compile $('#tplLi').html()
 
@@ -157,18 +157,13 @@ myApp.onPageInit 'lista', (e)->
 		#myApp.popup lic ct
 
 myApp.onPageInit 'producto', (e)->
-	hr=  e.url.replace 'prod.php?', ''
+	hr=  e.url.replace 'prod.html?', ''
 	pr= Template7.compile $('#tplPr').html()
 	ct= like cat, 'id', hr
 	prod= ct[0]
 	if titleCat?
 		prod['title']= titleCat
-	#prod.title= if typeof titleCat !== "undefined" && titleCat !== null then titleCat else ''
 	$('#det').html pr prod
-	#$.getJSON '../test/prod/'+hr, (ct)->
-	#	ct.title= titleCat
-	#	prod= ct
-	#	$('#det').html pr ct
 		
 myApp.onPageInit 'producto-detalle', (e)->
 	pr = Template7.compile $('#tplPr2').html()
@@ -191,22 +186,21 @@ myApp.onPageInit 'prod3', (e)->
 
 	$.post base+'home/total', myApp.formToJSON('#form'), (e)->
 		$('#form #total').html e
-	#console.log formData
-	#$.post '../total', 
+
 
 	$('form#form').on 'submitted', (e)->
 		$('#cartItem').text e.detail.data
-		mainView.loadPage 'cart.php'
+		mainView.loadPage 'cart.html'
 	
 cart = ->
 	cr = Template7.compile $('#tplCr').html()
-	$.getJSON '../test/cart', (d)->
+	$.getJSON base+'test/cart', (d)->
 		$('#cart').html cr d
 		$('.swipeout').on 'deleted', ->
-			$.get '../upc/'+$(this).find('.swipeout-delete').data('id'), ->
-				$.get '../test/item', (e)->
+			$.get base+'upc/'+$(this).find('.swipeout-delete').data('id'), ->
+				$.get base+'test/item', (e)->
 					$('#cartItem').text e
-					mainView.router.reloadPage 'cart.php'
+					mainView.router.reloadPage 'cart.html'
 					myApp.alert 'El producto ha sido removido', 'Mensaje'
 
 
@@ -214,9 +208,8 @@ cart = ->
 			$('#redirect_path').val ''
 			frm= myApp.formToJSON('#cart')
 			$.post $('#cart').attr('action'), frm, (e)->
-				mainView.router.reloadPage 'cart.php'
+				mainView.router.reloadPage 'cart.html'
 				$('#cartItem').text e
-				#$('#cart .card .card-content-inner span').eq(0).text e+' Cuadros'
 				myApp.alert 'El producto fue actualizado', 'Mensaje'
 
 
@@ -226,39 +219,33 @@ cart = ->
 			$('#redirect_path').val 'enviar'
 			frm= myApp.formToJSON('#cart')
 			$.post $('#cart').attr('action'), frm, (e)->
-				#e= eval("("+e.detail.data+")")
 				e= eval("("+e+")")
 				if e.paypal
-					#window.open e.paypal, '_system'
 					window.top.location.href = e.paypal
 				if e.msg
 					myApp.alert e.msg, 'Mensaje'
-					mainView.loadPage 'index.php'
+					mainView.loadPage 'index.html'
 
 
 
 myApp.onPageInit 'cart', (e)->
 	cart()
-		#$('.action1').click (l)->
-		#	myApp.alert $(this).data('id')
 
 
 setTimeout ->
 	$('#logout').click ->
 		$.getJSON base+'auth/logout/1', (d)->
-			mainView.loadPage 'index.php'
+			mainView.loadPage 'index.html'
 
 , 1500
 
 $(document).on 'pageAfterBack pageInit', (e)->
 	vw= e.detail.page.view.url
 	switch vw
-		when 'sear.php'
+		when 'sear.html'
 			inicio= false
 			cat = buscar
-			#console.log 'cat'+cat.items.length
-			#console.log 'buscar'+buscar.items.length
-		when 'index.php'
+		when 'index.html'
 			inicio= true
 			cat= []
 		
@@ -267,30 +254,24 @@ $(document).on 'pageAfterBack pageInit', (e)->
 
 myApp.onPageInit 'buscar', (e)->
 	pr = Template7.compile $('#tplBus').html()
-	#$.getJSON '../test/sear', (s)->
-	#	$('.list-block-search').html pr s
 
 	$('.searchbar input[type=search]').on 'keyup change', (e)->
 		vl= $(this).val()
 		if vl.length>3
-			#$.post '../test/sear', like: vl, (s)->
-			$.post '../test/sear', like: vl, (s)->
+			$.post base+'test/sear', like: vl, (s)->
 				s= eval("("+s+")")
 				$('.list-block-search').html pr s
 				cat.items= s.items
 				buscar = s
-				#$('.list-block-search a').click ->
-				#	cat= s
-				#	mainView.loadPage $(this).prop 'href'
 
 
 
 ################################################# SUBE TU FOTO ##############################################################
 sube= ''
 myApp.onPageInit 'sube2', (e)->
-	id=  e.url.replace 'sube2.php?', ''
+	id=  e.url.replace 'sube2.html?', ''
 	pr = Template7.compile $('#tplCd').html()
-	$.get '../test/sube/'+id, (s)->
+	$.get base+'test/sube/'+id, (s)->
 		s= eval("("+s+")")
 		$('#novCd').html pr s
 		.find('.media-list').each (e)->
@@ -305,14 +286,11 @@ myApp.onPageInit 'sube3', (e)->
 	tipo= Object.keys(formData)[1]
 	cg= new Object()
 	
-	#console.log tipo
 	med= $('#novCd input[value="'+formData[tipo]+'"]').parent().find('.medidas')
-	#med= $('#novCd input[value="'+formData[tipo]+'"]').parent().find('.medidas')
 	med.children('span').each (i)->
 		cg[i]=
 			w: $(this).data 'w'
 			h: $(this).data 'h'
-	#$.get '../test/suben/'+formData[formData.tipo]
 	formData.id= med.data 'id'
 	formData.carga= cg
 	$('#sbCd').html pr formData
@@ -328,8 +306,7 @@ myApp.onPageInit 'sube3', (e)->
 			data.append key, value
 
 		$.ajax
-			#url: '../test/upload'
-			url: '../home/upload/'+formData.id+'/'+$p.data('w')+'/'+$p.data('h')+'/file/1'
+			url: base+'home/upload/'+formData.id+'/'+$p.data('w')+'/'+$p.data('h')+'/file/1'
 			type: 'POST'
 			data: data
 			cache: false
@@ -381,11 +358,11 @@ myApp.onPageInit 'sube4', (e)->
 
 	#console.log formData
 
-	$.post '../home/img_in/0/1',formData, (e)->
+	$.post base+'home/img_in/0/1',formData, (e)->
 		$('#total').html e
 
 
 	$('form#form').on 'submitted', (e)->
 		$('#cartItem').text e.detail.data
-		mainView.loadPage 'cart.php'
+		mainView.loadPage 'cart.html'
 

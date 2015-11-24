@@ -10,7 +10,7 @@
 									i.icon.icon-back
 								.item-inner Regresar
 								
-			form(action="../home/update_cart/1",method="post",enctype="multipart/form-data").list-block.ajax-submit#cart
+			form(action="http://recuadros.com/home/update_cart/1",method="post",enctype="multipart/form-data").list-block.ajax-submit#cart
 			script(type="text/template7")#tplCr
 				input(type="hidden",name="redirect",value="")#redirect_path
 				.row
@@ -21,10 +21,10 @@
 							.content-block-title Selecciona forma de pago:
 							#pay
 								label
-									img(src="../media/pay/deposito-bancario.png", alt="")
+									img(src="http://recuadros.com/media/pay/deposito-bancario.png", alt="")
 									input(type="radio",name="pago",value="deposito",checked)
 								label
-									img(src="../media/pay/paypal_cd.png", alt="")
+									img(src="http://recuadros.com/media/pay/paypal_cd.png", alt="")
 									input(type="radio",name="pago",value="paypal")
 							{{/if}}
 							{{else}}
